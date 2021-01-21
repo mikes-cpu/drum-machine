@@ -130,6 +130,11 @@ const playKick = (e) => {
   }
 };
 
+const playKickButton = (e) => {
+  let kickAudio = new Audio(kickFilePath);
+  kickAudio.play();
+};
+
 const kickSelectorButtonPress = () => {
   if (kickUl.style.opacity == 0) {
     kickUl.style.opacity = 1;
@@ -198,6 +203,11 @@ const playSnare = (e) => {
     const snareAudio = new Audio(snareFilePath);
     snareAudio.play();
   }
+};
+
+const playSnareButton = (e) => {
+  const snareAudio = new Audio(snareFilePath);
+  snareAudio.play();
 };
 
 const snareSelectorButtonPress = () => {
@@ -274,6 +284,11 @@ const playHihat = (e) => {
   }
 };
 
+const playHihatButton = (e) => {
+  const hihatAudio = new Audio(hihatFilePath);
+  hihatAudio.play();
+};
+
 const hihatSelectorButtonPress = () => {
   if (hihatUl.style.opacity == 0) {
     hihatUl.style.opacity = 1;
@@ -302,3 +317,33 @@ hihatSelectorButton.addEventListener("click", hihatSelectorButtonPress);
 // kick.addEventListener("click", playKick);
 // snare.addEventListener("click", playSnare);
 // hihat.addEventListener("click", playHihat);
+
+const buttonNav = document.createElement("div");
+buttonNav.classList.add("buttonNav");
+container.appendChild(buttonNav);
+
+const kickButton = document.createElement("div");
+kickButton.classList.add("kickButton");
+buttonNav.appendChild(kickButton);
+
+const kickButtonText = document.createElement("p");
+kickButtonText.innerText = "KICK";
+kickButton.appendChild(kickButtonText);
+
+const snareButton = document.createElement("div");
+snareButton.classList.add("snareButton");
+buttonNav.appendChild(snareButton);
+const snareButtonText = document.createElement("p");
+snareButtonText.innerText = "SNARE";
+snareButton.appendChild(snareButtonText);
+
+const hihatButton = document.createElement("div");
+hihatButton.classList.add("hihatButton");
+buttonNav.appendChild(hihatButton);
+const hihatButtonText = document.createElement("p");
+hihatButtonText.innerText = "HIHAT";
+hihatButton.appendChild(hihatButtonText);
+
+kickButton.addEventListener("click", playKickButton);
+snareButton.addEventListener("click", playSnareButton);
+hihatButton.addEventListener("click", playHihatButton);
